@@ -4,6 +4,11 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 public class MySubject {
+    public String title;
+
+    public void setTitle(String math) {
+    }
+
     @Entity
     public class mySubject
     {

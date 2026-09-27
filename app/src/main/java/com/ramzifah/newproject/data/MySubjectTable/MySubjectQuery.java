@@ -9,6 +9,8 @@ import androidx.room.Update;
 import java.util.List;
 
 public interface MySubjectQuery {
+    void insert(MySubject s2);
+
     @Dao
     public interface mySubjectQuery {
         /**
