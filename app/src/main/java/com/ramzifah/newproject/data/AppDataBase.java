@@ -7,11 +7,12 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 import com.ramzifah.newproject.data.MySubjectTable.MySubject;
-import com.ramzifah.newproject.data.MySubjectTable.MySubjectQuery;
-import com.ramzifah.newproject.data.MyTaskTable.MyTask;
-import com.ramzifah.newproject.data.MyTaskTable.MyTaskQuery;
+import com.ramzifah.newproject.data.MySubjectTable.mySubjectQuery;
+import com.ramzifah.newproject.data.MyTaskTable.myTask;
+import com.ramzifah.newproject.data.MyTaskTable.myTaskQuery;
+import com.ramzifah.newproject.data.MyTaskTable.myTask;
 import com.ramzifah.newproject.data.MyUserTable.MyUser;
-import com.ramzifah.newproject.data.MyUserTable.MyUserQuery;
+import com.ramzifah.newproject.data.MyUserTable.myUserQuery;
 
 
 
@@ -19,7 +20,7 @@ import com.ramzifah.newproject.data.MyUserTable.MyUserQuery;
      * الفئة المسؤولة عن بناء قاعدة البيانات بكل جداولها
      * وتوفر لنا كائن للتعامل مع قاعدة البيانات
      */
-    @Database(entities = {MyUser.class, MySubject.class, MyTask.class}, version = 1)
+    @Database(entities = {MyUser.class, MySubject.class, myTask.class}, version = 1)
     public abstract class AppDataBase extends RoomDatabase {
 
         /**
@@ -31,19 +32,19 @@ import com.ramzifah.newproject.data.MyUserTable.MyUserQuery;
          * يعيد كائن لعمليات جدول المستعملين
          * @return
          */
-        public abstract MyUserQuery getMyUserQuery();
+        public abstract myUserQuery getMyUserQuery();
 
         /**
          * يعيد كائن لعمليات جدول الموضيع
          * @return
          */
-        public abstract MySubjectQuery getMySubjectQuery();
+        public abstract mySubjectQuery getMySubjectQuery();
 
         /**
          * يعيد كائن لعمليات جدول المهمات
          * @return
          */
-        public abstract MyTaskQuery getMyTaskQuery();
+        public abstract myTaskQuery getMyTaskQuery();
 
         /**
          * بناء قاعدة البيانات وإعادة كائن يؤشر عليها
