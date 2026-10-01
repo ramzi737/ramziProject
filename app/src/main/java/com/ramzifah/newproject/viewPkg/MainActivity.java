@@ -1,4 +1,4 @@
-package com.ramzifah.newproject;
+package com.ramzifah.newproject.viewPkg;
 
 import android.os.Bundle;
 
@@ -8,6 +8,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.ramzifah.newproject.R;
 import com.ramzifah.newproject.data.AppDataBase;
 import com.ramzifah.newproject.data.MySubjectTable.MySubject;
 import com.ramzifah.newproject.data.MySubjectTable.mySubjectQuery;
