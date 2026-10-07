@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="horizontal">
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="312dp"
-        android:layout_height="54dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center|top"
-        android:gravity="center"
+        android:gravity="center|top"
         android:text="Add New Task"
-        android:textSize="28dp"
-        android:translationY="50dp" />
+        android:textSize="28dp" />
+
 </LinearLayout>
