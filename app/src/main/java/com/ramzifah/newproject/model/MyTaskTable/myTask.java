@@ -1,4 +1,4 @@
-package com.ramzifah.newproject.data.MyTaskTable;
+package com.ramzifah.newproject.model.MyTaskTable;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;

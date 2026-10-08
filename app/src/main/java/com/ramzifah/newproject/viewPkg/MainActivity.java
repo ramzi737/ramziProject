@@ -9,9 +9,9 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.ramzifah.newproject.R;
-import com.ramzifah.newproject.data.AppDataBase;
-import com.ramzifah.newproject.data.MySubjectTable.MySubject;
-import com.ramzifah.newproject.data.MySubjectTable.mySubjectQuery;
+import com.ramzifah.newproject.model.AppDataBase;
+import com.ramzifah.newproject.model.MySubjectTable.MySubject;
+import com.ramzifah.newproject.model.MySubjectTable.mySubjectQuery;
 
 public class MainActivity extends AppCompatActivity {
 

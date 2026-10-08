@@ -1,4 +1,4 @@
-package com.ramzifah.newproject.data.MyUserTable;//Entity = Table =جدول
+package com.ramzifah.newproject.model.MyUserTable;//Entity = Table =جدول
 //عندما نريد ان نتعامل مع هذه الفئة كجدول معطيات
 
 import androidx.room.ColumnInfo;

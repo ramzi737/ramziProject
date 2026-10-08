@@ -1,5 +1,6 @@
-package com.ramzifah.newproject.data.MyTaskTable;
+package com.ramzifah.newproject.model.MyTaskTable;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -16,7 +17,7 @@ public interface myTaskQuery {
      * @return قائمة من المهمات
      */
     @Query("SELECT * FROM MyTask ORDER BY importance DESC")
-    List<myTask> getAllTasks();
+    static List<myTask> getAllTasks();
 
     /**
      * ارجاع المهمات حسب المستعمل واذا انتهت ام لا ومرتبة تنازليا حسب الاهمية
@@ -68,4 +69,6 @@ public interface myTaskQuery {
     @Query("SELECT * FROM MyTask WHERE subjId=:key_id " +
             "ORDER BY importance DESC")
     List<myTask> getTasksBySubjId(long key_id);
+
+    LiveData<List<myTask>> getTasksByUserId(long userId);
 }

@@ -1,4 +1,4 @@
-package com.ramzifah.newproject.data.MySubjectTable;
+package com.ramzifah.newproject.model.MySubjectTable;
 
 import androidx.room.Dao;
 import androidx.room.Delete;

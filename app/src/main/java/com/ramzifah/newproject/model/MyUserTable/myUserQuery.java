@@ -1,12 +1,10 @@
-package com.ramzifah.newproject.data.MyUserTable;
+package com.ramzifah.newproject.model.MyUserTable;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
-
-import com.ramzifah.newproject.data.MyUserTable.MyUser;
 
 import java.util.List;
 

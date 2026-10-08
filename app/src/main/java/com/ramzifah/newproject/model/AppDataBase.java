@@ -1,22 +1,22 @@
-package com.ramzifah.newproject.data;
+package com.ramzifah.newproject.model;
 
+import android.app.Application;
 import android.content.Context;
 
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-import com.ramzifah.newproject.data.MySubjectTable.MySubject;
-import com.ramzifah.newproject.data.MySubjectTable.mySubjectQuery;
-import com.ramzifah.newproject.data.MyTaskTable.myTask;
-import com.ramzifah.newproject.data.MyTaskTable.myTaskQuery;
-import com.ramzifah.newproject.data.MyTaskTable.myTask;
-import com.ramzifah.newproject.data.MyUserTable.MyUser;
-import com.ramzifah.newproject.data.MyUserTable.myUserQuery;
+import com.ramzifah.newproject.model.MySubjectTable.MySubject;
+import com.ramzifah.newproject.model.MySubjectTable.mySubjectQuery;
+import com.ramzifah.newproject.model.MyTaskTable.myTask;
+import com.ramzifah.newproject.model.MyTaskTable.myTaskQuery;
+import com.ramzifah.newproject.model.MyUserTable.MyUser;
+import com.ramzifah.newproject.model.MyUserTable.myUserQuery;
+import com.ramzifah.newproject.repositories.TaskRepository;
 
 
-
-    /**
+/**
      * الفئة المسؤولة عن بناء قاعدة البيانات بكل جداولها
      * وتوفر لنا كائن للتعامل مع قاعدة البيانات
      */
@@ -28,7 +28,10 @@ import com.ramzifah.newproject.data.MyUserTable.myUserQuery;
          */
         private static AppDataBase db;
 
-        /**
+    public static AppDataBase getDb(Application application) {
+    }
+
+    /**
          * يعيد كائن لعمليات جدول المستعملين
          * @return
          */
@@ -61,6 +64,9 @@ import com.ramzifah.newproject.data.MyUserTable.myUserQuery;
                     .build();
             }
             return db;
+        }
+
+        public TaskRepository myTaskQuery() {
         }
     }
 
