@@ -1,10 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".viewPkg.MainActivity3">
+    tools:context=".viewPkg.MainActivity3" >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_margin="20dp"
+        android:text="User Registration" />
+
+    <EditText
+        android:id="@+id/editTextText12"
+        android:layout_width="match_parent"
+        android:layout_height="66dp"
+        android:layout_margin="20dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Full Name" />
+
+    <EditText
+        android:id="@+id/editTextText13"
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        android:layout_margin="20dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Email" />
+
+    <EditText
+        android:id="@+id/editTextText14"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_margin="20dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Password" />
+
+    <EditText
+        android:id="@+id/editTextText15"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_margin="20dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Phone Number" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="Register" />
+</LinearLayout>
