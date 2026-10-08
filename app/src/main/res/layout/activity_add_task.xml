@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/textView"
@@ -15,5 +15,41 @@
         android:gravity="center|top"
         android:text="Add New Task"
         android:textSize="28dp" />
+
+    <EditText
+        android:id="@+id/editTextText2"
+        android:layout_width="371dp"
+        android:layout_height="78dp"
+        android:layout_gravity="center|left"
+        android:layout_margin="20dp"
+        android:layout_weight="1"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Task Title" />
+
+    <EditText
+        android:id="@+id/editTextText4"
+        android:layout_width="match_parent"
+        android:layout_height="77dp"
+        android:layout_margin="20dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Task Description" />
+
+    <EditText
+        android:id="@+id/editTextText3"
+        android:layout_width="match_parent"
+        android:layout_height="57dp"
+        android:layout_margin="20dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Priority (e.g.1,2,3" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="Save Task" />
 
 </LinearLayout>
