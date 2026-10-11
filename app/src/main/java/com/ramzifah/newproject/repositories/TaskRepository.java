@@ -20,7 +20,7 @@ public class TaskRepository
      *
      */
 public TaskRepository(Application application){
-    AppDataBase dp=AppDataBase.getDb(application)
+    AppDataBase dp=AppDataBase.getDb(application);
             myTaskQuery.getAllTasks();
 }
     /**
@@ -46,6 +46,8 @@ public LiveData<List<myTask>>getTasksByUserId(long userId){
      * @param taskId معرف المهمة الفريد.
      * @return كائن المهمة المطلوب.
      */
-public LiveData
+public LiveData<myTask> getTaskById(long taskId){
+    return taskQuery.getTaskById(taskId);
+}
 }
 

@@ -14,13 +14,14 @@ public interface myTaskQuery {
 
     /**
      * اعادة جميع معطيات جدول المهمات
+     *
      * @return قائمة من المهمات
      */
-    @Query("SELECT * FROM MyTask ORDER BY importance DESC")
-    static List<myTask> getAllTasks();
-
+    @Query("SELECT * FROM myTask ORDER BY importance DESC")
+    static LiveData<List<myTask>> getAllTasks();
     /**
      * ارجاع المهمات حسب المستعمل واذا انتهت ام لا ومرتبة تنازليا حسب الاهمية
+     *
      * @param userid_p رقم المستعمل
      * @return
      */
@@ -29,16 +30,18 @@ public interface myTaskQuery {
 
     /**
      * ارجاع المهمات حسب المستعمل واذا انتهت ام لا ومرتبة تنازليا حسب الاهمية
-     * @param userid_p رقم المستعمل
+     *
+     * @param userid_p      رقم المستعمل
      * @param isCompleted_p هل تمت ام لا
      * @return قائمة مهمات
      */
     @Query("SELECT * FROM MyTask WHERE userId=:userid_p AND isCompleted=:isCompleted_p " +
             "ORDER BY importance DESC")
-    List<myTask> getAllTaskOrederBy(long userid_p, boolean isCompleted_p);
+    LiveData<List<myTask>> getAllTaskOrederBy(long userid_p, boolean isCompleted_p);
 
     /**
      * ادخال مهمات
+     *
      * @param t مجموعة مهمات
      */
     @Insert
@@ -46,6 +49,7 @@ public interface myTaskQuery {
 
     /**
      * تعديل المهممات
+     *
      * @param tasks مجموعة مهمات للتعديل (التعديل حسب المفتاح الرئيسي)
      */
     @Update
@@ -53,22 +57,27 @@ public interface myTaskQuery {
 
     /**
      * حذف مهمة او مهمات
+     *
      * @param tasks حذف المهمات (حسب المفتاح الرئيسي)
      */
     @Delete
     void deleteTask(myTask... tasks);
 
+    /**
+     *
+     * @param kid
+     */
     @Query("DELETE FROM MyTask WHERE keyId=:kid")
     void deleteTask(long kid);
 
-    /**
-     * استخراج جميع المهمات التابعة لرقم الموضوع
-     * @param key_id رقم الموضوع
-     * @return
-     */
-    @Query("SELECT * FROM MyTask WHERE subjId=:key_id " +
-            "ORDER BY importance DESC")
-    List<myTask> getTasksBySubjId(long key_id);
+//    /**
+//     * استخراج جميع المهمات التابعة لرقم الموضوع
+//     * @param key_id رقم الموضوع
+//     * @return
+//     */
+//    @Query("DELETE FROM MyTask WHERE keyId=:kid")
+//    LiveData<List<myTask>>  getTasksBySubjId(long key_id);
 
     LiveData<List<myTask>> getTasksByUserId(long userId);
-}
+    }
+
