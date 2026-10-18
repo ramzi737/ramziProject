@@ -28,8 +28,6 @@ import com.ramzifah.newproject.repositories.TaskRepository;
          */
         private static AppDataBase db;
 
-    public static AppDataBase getDb(Application application) {
-    }
 
     /**
          * يعيد كائن لعمليات جدول المستعملين
@@ -66,7 +64,6 @@ import com.ramzifah.newproject.repositories.TaskRepository;
             return db;
         }
 
-        public TaskRepository myTaskQuery() {
-        }
+
     }
 

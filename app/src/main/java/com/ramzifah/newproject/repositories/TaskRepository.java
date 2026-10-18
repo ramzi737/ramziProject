@@ -20,8 +20,10 @@ public class TaskRepository
      *
      */
 public TaskRepository(Application application){
-    AppDataBase dp=AppDataBase.getDb(application);
-            myTaskQuery.getAllTasks();
+    AppDataBase db = AppDataBase.getDB(application);
+    taskQuery = db.getMyTaskQuery();
+    allTasks = taskQuery.getAllTasks();
+
 }
     /**
      *LiveData جلب جميع المهام الموجودة في قاعدة البيانات كـ.
@@ -46,8 +48,58 @@ public LiveData<List<myTask>>getTasksByUserId(long userId){
      * @param taskId معرف المهمة الفريد.
      * @return كائن المهمة المطلوب.
      */
-public LiveData<myTask> getTaskById(long taskId){
-    return taskQuery.getTaskById(taskId);
+public LiveData<List<myTask>> getTaskById(long taskId){
+    return taskQuery.getAllTaskOrederByid(taskId);
 }
+/**
+ * البحث عن المهام التي تتطابق عناوينها مع النص المدخل.
+ *
+ * @param title النص أو الكلمة المراد البحث عنها في العنوان.
+ * @return قائمة المهام المطابقة.
+ */
+public LiveData<List<myTask>> getTasksByTitle(String title) {
+    return taskQuery.getTasksByTitle(title);
+}
+/**
+ * البحث عن المهام التي تتطابق أوصافها مع النص المدخل.
+ *
+ * @param description النص أو الكلمة المراد البحث عنها في الوصف.
+ * @return قائمة المهام المطابقة.
+ */
+public LiveData<List<myTask>> getTasksByDescription(String description) {
+    return taskQuery.getTasksByDescription(description);
+}
+/**
+ * جلب المهام المفلترة حسب مستوى الأولوية.
+ *
+ * @param priority مستوى الأولوية المطلوب.
+ * @return قائمة المهام ذات الأولوية المحددة.
+ */
+public LiveData<List<myTask>> getTasksByPriority(int priority) {
+    return taskQuery.getTasksByPriority(priority);
+}
+/**
+ * جلب المهام الخاصة بمستخدم معين والتي تتطابق مع عنوان معين.
+ *
+ * @param userId معرف المستخدم.
+ * @param title  عنوان المهمة للبحث.
+ * @return قائمة المهام المطابقة.
+ */
+public LiveData<List<myTask>> getTasksByUserIdAndTitle(long userId, String title) {
+    return taskQuery.getTasksByUserIdAndTitle(userId, title);
+}
+
+/**
+ * إدراج مهمة أو عدة مهمات جديدة في قاعدة البيانات.
+ *
+ * @param tasks المهام المراد إضافتها.
+ */
+    public void insert(myTask... tasks) {
+        taskQuery.insertTask(tasks);
+    }
+
+
+
+
 }
 

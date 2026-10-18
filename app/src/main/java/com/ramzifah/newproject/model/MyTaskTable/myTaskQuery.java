@@ -18,7 +18,10 @@ public interface myTaskQuery {
      * @return قائمة من المهمات
      */
     @Query("SELECT * FROM myTask ORDER BY importance DESC")
-    static LiveData<List<myTask>> getAllTasks();
+     LiveData<List<myTask>> getAllTasks();
+
+
+
     /**
      * ارجاع المهمات حسب المستعمل واذا انتهت ام لا ومرتبة تنازليا حسب الاهمية
      *
@@ -26,7 +29,7 @@ public interface myTaskQuery {
      * @return
      */
     @Query("SELECT * FROM MyTask WHERE userId=:userid_p ORDER BY time DESC")
-    List<myTask> getAllTaskOrederBy(long userid_p);
+    LiveData<List<myTask>> getAllTaskOrederByid(long userid_p);
 
     /**
      * ارجاع المهمات حسب المستعمل واذا انتهت ام لا ومرتبة تنازليا حسب الاهمية
@@ -79,5 +82,13 @@ public interface myTaskQuery {
 //    LiveData<List<myTask>>  getTasksBySubjId(long key_id);
 
     LiveData<List<myTask>> getTasksByUserId(long userId);
-    }
+
+    LiveData<List<myTask>> getTasksByTitle(String title);
+
+    LiveData<List<myTask>> getTasksByDescription(String description);
+
+    LiveData<List<myTask>> getTasksByPriority(int priority);
+
+    LiveData<List<myTask>> getTasksByUserIdAndTitle(long userId, String title);
+}
 
