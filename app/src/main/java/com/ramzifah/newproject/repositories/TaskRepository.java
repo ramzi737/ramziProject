@@ -99,7 +99,30 @@ public LiveData<List<myTask>> getTasksByUserIdAndTitle(long userId, String title
     }
 
 
-
+    /**
+     * تحديث مهمة أو عدة مهمات في قاعدة البيانات.
+     *
+     * @param tasks المهام المراد تحديثها.
+     */
+    public void update(myTask... tasks) {
+        taskQuery.updateTask(tasks);
+    }
+    /**
+     * تحديث بيانات مهمة محددة (العنوان، الوصف، والأولوية) باستخدام معرف المهمة.
+     *
+     * @param taskId      معرف المهمة المراد تعديلها.
+     * @param title       العنوان الجديد.
+     * @param description الوصف الجديد.
+     * @param priority    الأولوية الجديدة.
+     */
+    public void updateTask(long taskId, String title, String description, int priority) {
+        taskQuery.updateTask(taskId, title, description, priority);
+    }
 
 }
+
+
+
+
+
 

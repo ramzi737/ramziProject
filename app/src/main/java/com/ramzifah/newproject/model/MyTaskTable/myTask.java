@@ -11,7 +11,7 @@ public class myTask
     public long keyId;
 
     /** درجة الاهمية 1-5 */
-    public int importance;
+    public int priorty;
 
     /** عنوان قصير */
     public String shortTitle;
@@ -30,4 +30,6 @@ public class myTask
 
     /** رقم المستعمل الذي اضاف المهمة */
     public long userId;
+
+    public String description;
 }

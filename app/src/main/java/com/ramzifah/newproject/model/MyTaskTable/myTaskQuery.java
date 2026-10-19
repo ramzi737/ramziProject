@@ -17,9 +17,8 @@ public interface myTaskQuery {
      *
      * @return قائمة من المهمات
      */
-    @Query("SELECT * FROM myTask ORDER BY importance DESC")
-     LiveData<List<myTask>> getAllTasks();
-
+    @Query("SELECT * FROM myTask ORDER BY priorty DESC")
+    LiveData<List<myTask>> getAllTasks();
 
 
     /**
@@ -28,7 +27,7 @@ public interface myTaskQuery {
      * @param userid_p رقم المستعمل
      * @return
      */
-    @Query("SELECT * FROM MyTask WHERE userId=:userid_p ORDER BY time DESC")
+    @Query("SELECT * FROM myTask WHERE userId=:userid_p ORDER BY time DESC")
     LiveData<List<myTask>> getAllTaskOrederByid(long userid_p);
 
     /**
@@ -39,7 +38,7 @@ public interface myTaskQuery {
      * @return قائمة مهمات
      */
     @Query("SELECT * FROM MyTask WHERE userId=:userid_p AND isCompleted=:isCompleted_p " +
-            "ORDER BY importance DESC")
+            "ORDER BY priorty DESC")
     LiveData<List<myTask>> getAllTaskOrederBy(long userid_p, boolean isCompleted_p);
 
     /**
@@ -80,15 +79,15 @@ public interface myTaskQuery {
 //     */
 //    @Query("DELETE FROM MyTask WHERE keyId=:kid")
 //    LiveData<List<myTask>>  getTasksBySubjId(long key_id);
-
+@Query("select* FROM myTask WHERE userId=:userId")
     LiveData<List<myTask>> getTasksByUserId(long userId);
-
+    @Query("select* FROM myTask WHERE shortTitle=:title")
     LiveData<List<myTask>> getTasksByTitle(String title);
-
+    @Query("select* FROM myTask WHERE description=:description")
     LiveData<List<myTask>> getTasksByDescription(String description);
-
+    @Query("select* FROM myTask WHERE  priorty=:priority")
     LiveData<List<myTask>> getTasksByPriority(int priority);
-
+    @Query("select* FROM myTask WHERE userId=:userId and shortTitle=:title")
     LiveData<List<myTask>> getTasksByUserIdAndTitle(long userId, String title);
 }
 
