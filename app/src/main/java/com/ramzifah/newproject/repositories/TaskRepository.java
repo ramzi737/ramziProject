@@ -88,7 +88,6 @@ public LiveData<List<myTask>> getTasksByPriority(int priority) {
 public LiveData<List<myTask>> getTasksByUserIdAndTitle(long userId, String title) {
     return taskQuery.getTasksByUserIdAndTitle(userId, title);
 }
-
 /**
  * إدراج مهمة أو عدة مهمات جديدة في قاعدة البيانات.
  *
@@ -97,8 +96,6 @@ public LiveData<List<myTask>> getTasksByUserIdAndTitle(long userId, String title
     public void insert(myTask... tasks) {
         taskQuery.insertTask(tasks);
     }
-
-
     /**
      * تحديث مهمة أو عدة مهمات في قاعدة البيانات.
      *
@@ -115,7 +112,25 @@ public LiveData<List<myTask>> getTasksByUserIdAndTitle(long userId, String title
      * @param description الوصف الجديد.
      * @param priority    الأولوية الجديدة.
      */
-
+    public void updateTask(long taskId, String title, String description, int priority) {
+        taskQuery.updateTask(taskId, title, description, priority);
+    }
+    /**
+     * حذف مهمة أو عدة مهمات من قاعدة البيانات.
+     *
+     * @param tasks المهام المراد حذفها.
+     */
+    public void delete(myTask... tasks) {
+        taskQuery.deleteTask(tasks);
+    }
+    /**
+     * حذف مهمة محددة باستخدام معرفها الفريد (Task ID).
+     *
+     * @param taskId معرف المهمة المراد حذفها.
+     */
+    public void deleteTaskById(long taskId) {
+        taskQuery.deleteTask(taskId);
+    }
 }
 
 

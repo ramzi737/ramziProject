@@ -49,13 +49,10 @@ public interface myTaskQuery {
     @Insert
     void insertTask(myTask... t); // ثلاثة نقاط تعني مجموعة
 
-    /**
-     * تعديل المهممات
-     *
-     * @param tasks مجموعة مهمات للتعديل (التعديل حسب المفتاح الرئيسي)
-     */
+    @Query("SELECT * FROM MyTask WHERE userId=:taskId AND shortTitle=:title And description=:description And priorty=:priority " +
+            "ORDER BY priorty DESC")
     @Update
-    void updateTask(myTask... tasks);
+    void updateTask(long taskId, String title, String description, int priority);
 
     /**
      * حذف مهمة او مهمات
@@ -89,5 +86,7 @@ public interface myTaskQuery {
     LiveData<List<myTask>> getTasksByPriority(int priority);
     @Query("select* FROM myTask WHERE userId=:userId and shortTitle=:title")
     LiveData<List<myTask>> getTasksByUserIdAndTitle(long userId, String title);
+
+    void updateTask(myTask[] tasks);
 }
 
