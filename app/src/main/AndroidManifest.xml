@@ -26,11 +26,11 @@
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".viewPkg.MainActivity2"
+            android:name=".viewPkg.ActivityAddTask"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".viewPkg.MainActivity3"
+            android:name=".viewPkg.ActivityRegister"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
     </application>

@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".viewPkg.MainActivity3" >
+    tools:context=".viewPkg.ActivityRegister" >
 
     <TextView
         android:id="@+id/textView8"

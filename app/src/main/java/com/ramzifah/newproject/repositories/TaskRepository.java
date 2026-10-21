@@ -115,9 +115,6 @@ public LiveData<List<myTask>> getTasksByUserIdAndTitle(long userId, String title
      * @param description الوصف الجديد.
      * @param priority    الأولوية الجديدة.
      */
-    public void updateTask(long taskId, String title, String description, int priority) {
-        taskQuery.updateTask(taskId, title, description, priority);
-    }
 
 }
 

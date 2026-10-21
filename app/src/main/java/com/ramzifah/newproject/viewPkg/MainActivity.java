@@ -1,6 +1,7 @@
 package com.ramzifah.newproject.viewPkg;
 
 import android.os.Bundle;
+import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,7 +14,10 @@ import com.ramzifah.newproject.model.AppDataBase;
 import com.ramzifah.newproject.model.MySubjectTable.MySubject;
 import com.ramzifah.newproject.model.MySubjectTable.mySubjectQuery;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity
+{
+    private Button btn_Add_Task_Screen;
+    private Button btn_Register_Screen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
