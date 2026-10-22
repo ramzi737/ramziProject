@@ -49,9 +49,7 @@ public interface myTaskQuery {
     @Insert
     void insertTask(myTask... t); // ثلاثة نقاط تعني مجموعة
 
-    @Query("SELECT * FROM MyTask WHERE userId=:taskId AND shortTitle=:title And description=:description And priorty=:priority " +
-            "ORDER BY priorty DESC")
-    @Update
+    @Query("UPDATE MyTask SET shortTitle = :title, description = :description, priorty = :priority WHERE keyId = :taskId")
     void updateTask(long taskId, String title, String description, int priority);
 
     /**
@@ -87,6 +85,11 @@ public interface myTaskQuery {
     @Query("select* FROM myTask WHERE userId=:userId and shortTitle=:title")
     LiveData<List<myTask>> getTasksByUserIdAndTitle(long userId, String title);
 
+    /**
+     *
+     * @param tasks
+     */
+    @Update
     void updateTask(myTask[] tasks);
 }
 
