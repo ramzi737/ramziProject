@@ -20,7 +20,7 @@ import com.ramzifah.newproject.repositories.TaskRepository;
      * الفئة المسؤولة عن بناء قاعدة البيانات بكل جداولها
      * وتوفر لنا كائن للتعامل مع قاعدة البيانات
      */
-    @Database(entities = {MyUser.class, MySubject.class, myTask.class}, version = 1)
+    @Database(entities = {MyUser.class, MySubject.class, myTask.class}, version =2)
     public abstract class AppDataBase extends RoomDatabase {
 
         /**

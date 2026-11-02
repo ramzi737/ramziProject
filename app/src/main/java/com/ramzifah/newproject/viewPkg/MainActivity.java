@@ -18,23 +18,23 @@ import com.ramzifah.newproject.model.MySubjectTable.mySubjectQuery;
 
 public class MainActivity extends AppCompatActivity
 {
-    private Button btn_Add_Task_Screen;
-    private Button btn_Register_Screen;
+    private Button btnSignInScreen;
+    private Button btnRegisterScreen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         //بناء قاعدة بيانات وارجاع مؤشر عليها1
-        AppDataBase db=AppDataBase.getDB(getApplicationContext());
-//2 مؤشر لكائن عمليات  لجدول
+        AppDataBase db = AppDataBase.getDB(getApplicationContext());
+        //2 مؤشر لكائن عمليات لجدول
         mySubjectQuery subjectQuery = db.getMySubjectQuery();
-//3  بناء كائن من نوع الجدول وتحديد قيم الصفات
-        MySubject s1=new MySubject();
+        //3 بناء كائن من نوع الجدول وتحديد قيم الصفات
+        MySubject s1 = new MySubject();
         s1.setTitle("Math");
-        MySubject s2=new MySubject();
-        s2.title="Computers";
-//4 اضافة كائن للجدول
+        MySubject s2 = new MySubject();
+        s2.title = "Computers";
+        //4 اضافة كائن للجدول
         subjectQuery.insert(s1);
         subjectQuery.insert(s2);
 
@@ -45,21 +45,21 @@ public class MainActivity extends AppCompatActivity
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        btn_Add_Task_Screen=findViewById(R.id.btnAddTaskScreen);
 
-        btn_Add_Task_Screen.setOnClickListener(new View.OnClickListener()
+        btnSignInScreen = findViewById(R.id.btnSignInScreen);
+        btnRegisterScreen = findViewById(R.id.btnRegisterScreen);
+
+        btnSignInScreen.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view)
             {
-                Intent i = new Intent(MainActivity.this, ActivityAddTask.class);
+                Intent i = new Intent(MainActivity.this, signIn.class);
                 startActivity(i);
             }
-
         });
-        btn_Register_Screen.findViewById(R.id.btnRegisterScreen);
 
-        btn_Register_Screen.setOnClickListener(new View.OnClickListener()
+        btnRegisterScreen.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view) {
