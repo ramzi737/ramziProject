@@ -8,8 +8,9 @@ import com.ramzifah.newproject.model.MyUserTable.myUserQuery;
 
 import java.util.List;
 
+// فئة مستودع البيانات الخاصة بالمستخدمين (Repository) للتعامل مع قاعدة البيانات بعيداً عن الواجهات
 public class UserRepository {
-    private myUserQuery userQuery;//واجهة الاستعلامات
+    private myUserQuery userQuery; // كائن واجهة الاستعلامات (DAO) لتنفيذ عمليات جدول المستخدمين
 
     /**
      * منشئ الكلاس (Constructor).
@@ -18,7 +19,10 @@ public class UserRepository {
      * @param application تطبيق أندرويد
      */
     public UserRepository(Application application) {
+        // جلب كائن قاعدة البيانات الأساسي وتمرير السياق (Application Context)
         AppDataBase db = AppDataBase.getDB(application);
+        
+        // الحصول على واجهة الاستعلامات الخاصة بالمستخدمين (myUserQuery)
         userQuery = db.getMyUserQuery();
     }
 
@@ -28,6 +32,7 @@ public class UserRepository {
      * @return قائمة بجميع المستعملين.
      */
     public List<MyUser> getAllUsers() {
+        // استدعاء دالة الاستعلام لجلب كل المستخدمين
         return userQuery.getAll();
     }
 
@@ -38,6 +43,7 @@ public class UserRepository {
      * @return قائمة المستعملين المطابقين.
      */
     public List<MyUser> loadAllByIds(int[] userIds) {
+        // استدعاء دالة الاستعلام لجلب المستخدمين حسب مصفوفة الـ IDs
         return userQuery.loadAllByIds(userIds);
     }
 
@@ -49,6 +55,7 @@ public class UserRepository {
      * @return كائن المستعمل إذا تم العثور عليه، أو null خلاف ذلك.
      */
     public MyUser checkEmailPassw(String myEmail, String myPassw) {
+        // فحص البريد وكلمة المرور لتسجيل الدخول
         return userQuery.checkEmailPassw(myEmail, myPassw);
     }
 
@@ -59,6 +66,7 @@ public class UserRepository {
      * @return كائن المستعمل إذا كان موجوداً، أو null خلاف ذلك.
      */
     public MyUser checkEmail(String myEmail) {
+        // فحص هل البريد الإلكتروني مسجل من قبل (يُستخدم عادة عند التسجيل لمنع التكرار)
         return userQuery.checkEmail(myEmail);
     }
 
@@ -68,6 +76,7 @@ public class UserRepository {
      * @param myUser المستعمل المراد إضافته.
      */
     public void insert(MyUser myUser) {
+        // إضافة مستعمل واحد لقاعدة البيانات
         userQuery.insert(myUser);
     }
 
@@ -77,6 +86,7 @@ public class UserRepository {
      * @param users المستعملون المراد إضافتهم.
      */
     public void insertAll(MyUser... users) {
+        // إضافة عدة مستعملين دفعة واحدة
         userQuery.insertAll(users);
     }
 
@@ -86,6 +96,7 @@ public class UserRepository {
      * @param users المستعملون المراد تحديث بياناتهم.
      */
     public void update(MyUser... users) {
+        // تحديث بيانات مستعمل أو قائمة مستعملين
         userQuery.update(users);
     }
 
@@ -95,6 +106,7 @@ public class UserRepository {
      * @param user المستعمل المراد حذفه.
      */
     public void delete(MyUser user) {
+        // حذف مستعمل معين باستخدام كائن المستخدم
         userQuery.delete(user);
     }
 
@@ -104,6 +116,7 @@ public class UserRepository {
      * @param id رقم المستعمل المميز.
      */
     public void delete(int id) {
+        // حذف مستعمل محدد بناءً على رقم الـ ID الخاص به
         userQuery.delete(id);
     }
 }

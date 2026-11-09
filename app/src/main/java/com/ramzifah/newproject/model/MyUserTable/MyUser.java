@@ -1,25 +1,26 @@
-package com.ramzifah.newproject.model.MyUserTable;//Entity = Table =جدول
-//عندما نريد ان نتعامل مع هذه الفئة كجدول معطيات
+package com.ramzifah.newproject.model.MyUserTable;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 /**
- * فئة تمثل المستعمل
+ * فئة (Entity) تُمثل جدول المستخدمين (Users Table) في قاعدة بيانات Room.
  */
-@Entity
+@Entity // تحديد أن هذا الكلاس يمثل جدولاً في قاعدة البيانات
 public class MyUser
 {
-    @PrimaryKey(autoGenerate = true)//تحديد الصفة كمفتاح رئيسي والذي يُنتجح بشكل تلقائي
+    @PrimaryKey(autoGenerate = true) // تحديد هذا الحقل كمفتاح رئيسي (Primary Key) مع توليد رقمه تلقائياً
     public long keyid;
-    @ColumnInfo(name = "full_Name")//اعطاء اسم جديد للعامود-الصفة في الجدول
-    public String fullName;
-    public String email;//بحالة لم يتم اعطاء اسم للعامود يكون اسم الصفه هو اسم العامود
-    public String phone;
-    public String passw;
 
-    @Override
+    @ColumnInfo(name = "full_Name") // تخصيص اسم لعمود الاسم الكامل في قاعدة البيانات
+    public String fullName;
+
+    public String email; // البريد الإلكتروني (إذا لم يُحدد اسم للعمود، يصبح اسم الحقل هو اسم العمود)
+    public String phone; // رقم الهاتف
+    public String passw; // كلمة المرور
+
+    @Override // دالة لطباعة محتويات كائن المستخدم بشكل نصي واضح عند الحاجة (للتصحيح والمتابعة)
     public String toString() {
         return "MyUser{" +
                 "keyid=" + keyid +

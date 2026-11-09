@@ -1,6 +1,8 @@
 package com.ramzifah.newproject.viewPkg;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -13,30 +15,46 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.ramzifah.newproject.R;
 
-import org.w3c.dom.Text;
-
 public class ActivityRegister extends AppCompatActivity {
+    // تعريف متغيرات عناصر الواجهة (النصوص، حقول إدخال بيانات المستخدم، وأزرار التسجيل والانتقال)
     private TextView textView;
     private EditText etFullName;
     private EditText etEmail;
     private EditText etPassword;
     private EditText etPhone;
     private Button btnRegister;
+    private Button btnToSignIn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_register);
+        EdgeToEdge.enable(this); // تفعيل العرض من الحافة للحافة
+        setContentView(R.layout.activity_register); // ربط الكود بملف التصميم الخاص بالتسجيل
+
+        // ضبط الهوامش تلقائياً لمنع تداخل المحتوى مع أشرطة النظام
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        textView=findViewById(R.id.textView);
-        etFullName=findViewById(R.id.etFullName);
-        etEmail=findViewById(R.id.etEmail);
-        etPassword=findViewById(R.id.etPassword);
-        etPhone=findViewById(R.id.etPhone);
-        btnRegister=findViewById(R.id.btnRegister);
+
+        // ربط متغيرات الجافا بعناصر الواجهة في ملف الـ XML باستخدام الـ ID
+        textView = findViewById(R.id.textView);
+        etFullName = findViewById(R.id.etFullName);
+        etEmail = findViewById(R.id.etEmail);
+        etPassword = findViewById(R.id.etPassword);
+        etPhone = findViewById(R.id.etPhone);
+        btnRegister = findViewById(R.id.btnRegister);
+        btnToSignIn = findViewById(R.id.btnToSignIn);
+
+        // برمجة حدث الضغط على زر الانتقال إلى شاشة تسجيل الدخول
+        btnToSignIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // إنشاء Intent للانتقال من شاشة التسجيل (Register) إلى شاشة تسجيل الدخول (Sign In)
+                Intent intent = new Intent(ActivityRegister.this, signIn.class);
+                startActivity(intent); // تشغيل الانتقال
+            }
+        });
     }
 }
