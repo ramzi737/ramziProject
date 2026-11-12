@@ -82,5 +82,4 @@ public interface myUserQuery
     @Update
     void update(MyUser... values);
 
-    MyUser login(String email, String password);
 }

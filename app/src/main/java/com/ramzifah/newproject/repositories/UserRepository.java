@@ -121,7 +121,7 @@ public class UserRepository {
     }
 
     public MyUser login(String email, String password) {
-        return userQuery.login(email , password);
+        return userQuery.checkEmailPassw(email , password);
 
     }
 }

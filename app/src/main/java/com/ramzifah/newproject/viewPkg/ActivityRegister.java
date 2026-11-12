@@ -14,6 +14,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.ramzifah.newproject.R;
+import com.ramzifah.newproject.viewmodel.UserViewModel;
 
 public class ActivityRegister extends AppCompatActivity {
     // تعريف متغيرات عناصر الواجهة (النصوص، حقول إدخال بيانات المستخدم، وأزرار التسجيل والانتقال)
@@ -24,6 +25,7 @@ public class ActivityRegister extends AppCompatActivity {
     private EditText etPhone;
     private Button btnRegister;
     private Button btnToSignIn;
+    private UserViewModel userViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,15 +48,10 @@ public class ActivityRegister extends AppCompatActivity {
         etPhone = findViewById(R.id.etPhone);
         btnRegister = findViewById(R.id.btnRegister);
         btnToSignIn = findViewById(R.id.btnToSignIn);
+    }
+    private void Saveuser ()
+    {
+        // 1. استخراج فحوى الحقول
 
-        // برمجة حدث الضغط على زر الانتقال إلى شاشة تسجيل الدخول
-        btnToSignIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // إنشاء Intent للانتقال من شاشة التسجيل (Register) إلى شاشة تسجيل الدخول (Sign In)
-                Intent intent = new Intent(ActivityRegister.this, signIn.class);
-                startActivity(intent); // تشغيل الانتقال
-            }
-        });
     }
 }

@@ -17,7 +17,7 @@ import com.ramzifah.newproject.model.MyUserTable.myUserQuery;
  * الفئة المسؤولة عن بناء وإدارة قاعدة البيانات (Room Database) بكل جداولها،
  * وتوفر لنا كائناً موحداً (Singleton) للتعامل مع قاعدة البيانات في التطبيق.
  */
-@Database(entities = {MyUser.class, MySubject.class, myTask.class}, version = 2) // تحديد جداول قاعدة البيانات ورقم الإصدار
+@Database(entities = {MyUser.class, MySubject.class, myTask.class},exportSchema = true, version = 2) // تحديد جداول قاعدة البيانات ورقم الإصدار
 public abstract class AppDataBase extends RoomDatabase {
 
     /**
