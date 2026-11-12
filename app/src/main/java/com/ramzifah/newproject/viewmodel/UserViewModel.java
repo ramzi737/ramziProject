@@ -115,4 +115,8 @@ public class UserViewModel extends AndroidViewModel {
     public void delete(int id) {
         repository.delete(id);
     }
+
+    public MyUser login(String email, String password) {
+        return repository.login(email , password);
+    }
 }

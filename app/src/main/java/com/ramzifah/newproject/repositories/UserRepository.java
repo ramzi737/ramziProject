@@ -119,4 +119,9 @@ public class UserRepository {
         // حذف مستعمل محدد بناءً على رقم الـ ID الخاص به
         userQuery.delete(id);
     }
+
+    public MyUser login(String email, String password) {
+        return userQuery.login(email , password);
+
+    }
 }

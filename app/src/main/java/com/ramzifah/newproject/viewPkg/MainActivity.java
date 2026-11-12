@@ -1,5 +1,6 @@
 package com.ramzifah.newproject.viewPkg;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -9,6 +10,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -35,13 +37,13 @@ public class MainActivity extends AppCompatActivity
         
         // 2. أخذ مؤشر لكائن العمليات الخاص بجدول المواضيع (DAO)
         mySubjectQuery subjectQuery = db.getMySubjectQuery();
-        
+
         // 3. إنشاء كائنات جديدة لمواضيع وتحديد قيم خصائصها
         MySubject s1 = new MySubject();
         s1.setTitle("Math");
         MySubject s2 = new MySubject();
         s2.title = "Computers";
-        
+
         // 4. إدراج المواضيع تلقائياً في قاعدة البيانات عند فتح التطبيق
         subjectQuery.insert(s1);
         subjectQuery.insert(s2);
@@ -100,12 +102,42 @@ public class MainActivity extends AppCompatActivity
         }
         if (item.getItemId() == R.id.itmSignout)
         {
-            Toast.makeText(this, "Sign out", Toast.LENGTH_SHORT).show();
+            showYesNoDialog();
+            return true;
         }
         if (item.getItemId() == R.id.itmHistory)
         {
             Toast.makeText(this, "History", Toast.LENGTH_SHORT).show();
         }
         return true;
+    }
+    /**
+     * بناء ديالوج
+     */
+    public void showYesNoDialog()
+    {
+        //تجهيز بنّاء شباك حوار "ديالوغ" يتلقى بارمتر مؤشر للنشاط (اكتيفيتي) الحالي
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Sign Out");// تحديد العنوان
+        builder.setMessage("Are you sure?");// تحدي فحوى شباك الحوار
+        //النص على الزر ومعالج الحدث
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                //معالجة حدث للموافقة
+                Toast.makeText(MainActivity.this, "Signing out", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        });
+        //النص على الزر ومعالج الحدث
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                //معالجة حدث للموافقة
+                Toast.makeText(MainActivity.this, "Signing out", Toast.LENGTH_SHORT).show();
+            }
+        });
+        AlertDialog dialog = builder.create();//بناء شباك الحوار -ديالوغ
+        dialog.show();//عرض الشباك
     }
 }
