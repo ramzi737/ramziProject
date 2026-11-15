@@ -14,6 +14,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.ramzifah.newproject.R;
+import com.ramzifah.newproject.utils.Valedate;
 import com.ramzifah.newproject.viewmodel.UserViewModel;
 
 public class ActivityRegister extends AppCompatActivity {
@@ -49,28 +50,36 @@ public class ActivityRegister extends AppCompatActivity {
         btnRegister = findViewById(R.id.btnRegister);
         btnToSignIn = findViewById(R.id.btnToSignIn);
     }
-    private void signInUser () {
+    private void signUפUser () {
         // 1. استخراج فحوى الحقول
         String email = etEmail.getText().toString().trim();
         String password = etPassword.getText().toString().trim();
         String name = etFullName.getText().toString().trim();
+        String phone = etPhone.getText().toString().trim();
 
         // 2. فحص سلامة المدخلات
-        if (email.isEmpty()) {
+        if(Valedate.isValidEmail(email))
+       {
             etEmail.setError("Email is required");
             etEmail.requestFocus();
             return;
         }
-        if (password.isEmpty()) {
+        if (Valedate.isValidPassword(password)) {
             etPassword.setError("Password is required");
             etPassword.requestFocus();
             return;
         }
-        if (name.isEmpty()) {
+        if (Valedate.isValidName(name)) {
             etFullName.setError("name is required");
             etFullName.requestFocus();
             return;
         }
+        if (Valedate.isValidPhone(phone)){
+            etPhone.setError("phone is required");
+            etPhone.requestFocus();
+            return;
+        }
+
 
     }
 }
