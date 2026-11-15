@@ -49,9 +49,28 @@ public class ActivityRegister extends AppCompatActivity {
         btnRegister = findViewById(R.id.btnRegister);
         btnToSignIn = findViewById(R.id.btnToSignIn);
     }
-    private void Saveuser ()
-    {
+    private void signInUser () {
         // 1. استخراج فحوى الحقول
+        String email = etEmail.getText().toString().trim();
+        String password = etPassword.getText().toString().trim();
+        String name = etFullName.getText().toString().trim();
+
+        // 2. فحص سلامة المدخلات
+        if (email.isEmpty()) {
+            etEmail.setError("Email is required");
+            etEmail.requestFocus();
+            return;
+        }
+        if (password.isEmpty()) {
+            etPassword.setError("Password is required");
+            etPassword.requestFocus();
+            return;
+        }
+        if (name.isEmpty()) {
+            etFullName.setError("name is required");
+            etFullName.requestFocus();
+            return;
+        }
 
     }
 }
