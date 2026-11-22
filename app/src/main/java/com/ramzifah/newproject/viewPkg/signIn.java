@@ -57,7 +57,7 @@ public class signIn extends AppCompatActivity {
 
         /**
          * يقوم بالتحقق من صحة الحقول المدخلة، استدعاء عملية تسجيل الدخول،
-         * عند النجاح MainActivity والانتقال ل Toast وإدارة النتيجة (نجاح أو فشل) عبر
+         * عند النجاح والانتقال لـ ActivityAddTask وإدارة النتيجة (نجاح أو فشل) عبر Toast
          */
 
     }
@@ -85,7 +85,8 @@ public class signIn extends AppCompatActivity {
 
         if (user != null) {
             Toast.makeText(this, "Welcome, " + user.fullName, Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(signIn.this, MainActivity.class);
+            // الانتقال من شاشة تسجيل الدخول إلى شاشة إضافة المهمة (ActivityAddTask)
+            Intent intent = new Intent(signIn.this, ActivityAddTask.class);
             startActivity(intent);
             finish();
         } else {
@@ -93,5 +94,3 @@ public class signIn extends AppCompatActivity {
         }
     }
 }
-
-
