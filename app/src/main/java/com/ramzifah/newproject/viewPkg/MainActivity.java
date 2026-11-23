@@ -21,8 +21,7 @@ import com.ramzifah.newproject.model.AppDataBase;
 import com.ramzifah.newproject.model.MySubjectTable.MySubject;
 import com.ramzifah.newproject.model.MySubjectTable.mySubjectQuery;
 
-public class MainActivity extends AppCompatActivity
-{
+public class MainActivity extends AppCompatActivity {
     // تعريف أزرار التنقل للشاشات (زر تسجيل الدخول وزر إنشاء حساب)
     private Button btnSignInScreen;
     private Button btnRegisterScreen;
@@ -34,7 +33,7 @@ public class MainActivity extends AppCompatActivity
 
         // 1. بناء قاعدة البيانات واسترجاع مؤشر عليها
         AppDataBase db = AppDataBase.getDB(getApplicationContext());
-        
+
         // 2. أخذ مؤشر لكائن العمليات الخاص بجدول المواضيع (DAO)
         mySubjectQuery subjectQuery = db.getMySubjectQuery();
 
@@ -62,11 +61,9 @@ public class MainActivity extends AppCompatActivity
         btnRegisterScreen = findViewById(R.id.btnRegisterScreen);
 
         // برمجة حدث الضغط على زر تسجيل الدخول للانتقال لشاشة الـ Sign In
-        btnSignInScreen.setOnClickListener(new View.OnClickListener()
-        {
+        btnSignInScreen.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View view) {
                 // إنشاء Intent (نية انتقال) من النشاط الحالي إلى نشاط تسجيل الدخول
                 Intent i = new Intent(MainActivity.this, signIn.class);
                 startActivity(i); // بدء الانتقال
@@ -74,8 +71,7 @@ public class MainActivity extends AppCompatActivity
         });
 
         // برمجة حدث الضغط على زر إنشاء حساب للانتقال لشاشة التسجيل
-        btnRegisterScreen.setOnClickListener(new View.OnClickListener()
-        {
+        btnRegisterScreen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // إنشاء Intent (نية انتقال) من النشاط الحالي إلى نشاط التسجيل
@@ -83,61 +79,5 @@ public class MainActivity extends AppCompatActivity
                 startActivity(i); // بدء الانتقال
             }
         });
-    }
-
-    @Override // دالة لإنشاء وبناء قائمة الخيارات العلويّة (Options Menu)
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
-        getMenuInflater().inflate(R.menu.main_menu, menu); // نفخ ملف الـ menu وربطه بالشاشة
-        return true;
-    }
-
-    @Override // دالة لمعالجة الحدث عند النقر على أي عنصر من قائمة الخيارات العلويّة
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
-        // فحص العنصر الذي تم الضغط عليه حسب معرّفه (ID) وإظهار رسالة Toast قصيرة
-        if (item.getItemId() == R.id.itmSettings)
-        {
-            Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show();
-        }
-        if (item.getItemId() == R.id.itmSignout)
-        {
-            showYesNoDialog();
-            return true;
-        }
-        if (item.getItemId() == R.id.itmHistory)
-        {
-            Toast.makeText(this, "History", Toast.LENGTH_SHORT).show();
-        }
-        return true;
-    }
-    /**
-     * بناء ديالوج
-     */
-    public void showYesNoDialog()
-    {
-        //تجهيز بنّاء شباك حوار "ديالوغ" يتلقى بارمتر مؤشر للنشاط (اكتيفيتي) الحالي
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Sign Out");// تحديد العنوان
-        builder.setMessage("Are you sure?");// تحدي فحوى شباك الحوار
-        //النص على الزر ومعالج الحدث
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                //معالجة حدث للموافقة
-                Toast.makeText(MainActivity.this, "Signing out", Toast.LENGTH_SHORT).show();
-                finish();
-            }
-        });
-        //النص على الزر ومعالج الحدث
-        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                //معالجة حدث للموافقة
-                Toast.makeText(MainActivity.this, "Signing out", Toast.LENGTH_SHORT).show();
-            }
-        });
-        AlertDialog dialog = builder.create();//بناء شباك الحوار -ديالوغ
-        dialog.show();//عرض الشباك
     }
 }

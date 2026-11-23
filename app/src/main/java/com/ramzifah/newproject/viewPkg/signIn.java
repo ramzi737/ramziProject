@@ -4,7 +4,6 @@ import static android.app.ProgressDialog.show;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -15,7 +14,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.ramzifah.newproject.R;
@@ -86,7 +84,7 @@ public class signIn extends AppCompatActivity {
         if (user != null) {
             Toast.makeText(this, "Welcome, " + user.fullName, Toast.LENGTH_SHORT).show();
             // الانتقال من شاشة تسجيل الدخول إلى شاشة إضافة المهمة (ActivityAddTask)
-            Intent intent = new Intent(signIn.this, ActivityAddTask.class);
+            Intent intent = new Intent(signIn.this, Activityhomescreen.class);
             startActivity(intent);
             finish();
         } else {
