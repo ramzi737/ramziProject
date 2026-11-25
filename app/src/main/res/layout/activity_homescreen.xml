@@ -1,78 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView"
+    <!-- تصميمك القديم (Add New Task) محفوظ بالكامل فوق الشريط السفلي -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center|top"
-        android:gravity="center|top"
-        android:text="Add New Task"
-        android:textSize="28dp" />
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottom_navigation"
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/etTitle"
-        android:layout_width="371dp"
-        android:layout_height="78dp"
-        android:layout_gravity="center|left"
-        android:layout_margin="20dp"
-        android:layout_weight="1"
-        android:ems="10"
-        android:hint="Task Title"
-        android:inputType="text" />
-
-    <EditText
-        android:id="@+id/etDescription"
-        android:layout_width="match_parent"
-        android:layout_height="77dp"
-        android:layout_margin="20dp"
-        android:ems="10"
-        android:hint="Task Description"
-        android:inputType="text" />
-
-    <EditText
-        android:id="@+id/etPriority"
-        android:layout_width="match_parent"
-        android:layout_height="57dp"
-        android:layout_margin="20dp"
-        android:ems="10"
-        android:hint="Priority (e.g.1,2,3"
-        android:inputType="text" />
-
-    <Button
-        android:id="@+id/btnSaveTask"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:text="Save Task" />
-
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/main_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <!-- مساحة عرض الصفحات (Fragments) -->
-        <FrameLayout
-            android:id="@+id/fragment_container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@id/bottom_navigation" />
-
-        <!-- شريط التنقل السفلي -->
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottom_navigation"
+        <TextView
+            android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:background="?android:attr/windowBackground"
-            app:menu="@menu/bottom_nav_menu" />
+            android:layout_gravity="center|top"
+            android:gravity="center|top"
+            android:text="Add New Task"
+            android:textSize="28sp" />
 
-    </RelativeLayout>
+        <EditText
+            android:id="@+id/etTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:ems="10"
+            android:hint="Task Title"
+            android:inputType="text" />
 
-</LinearLayout>
+        <EditText
+            android:id="@+id/etDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:ems="10"
+            android:hint="Task Description"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/etPriority"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:ems="10"
+            android:hint="Priority (e.g. 1, 2, 3)"
+            android:inputType="text" />
+
+        <Button
+            android:id="@+id/btnSaveTask"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="Save Task" />
+
+    </LinearLayout>
+
+    <!-- مساحة عرض الصفحات (Fragments) عند التنقل -->
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottom_navigation" />
+
+    <!-- شريط التنقل السفلي -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="?android:attr/windowBackground"
+        app:menu="@menu/bottom_navigation" />
+
+</RelativeLayout>

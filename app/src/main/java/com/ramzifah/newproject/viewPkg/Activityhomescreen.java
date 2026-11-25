@@ -101,7 +101,6 @@ public class Activityhomescreen extends AppCompatActivity {
         AlertDialog dialog = builder.create();//بناء شباك الحوار -ديالوغ
         dialog.show();//عرض الشباك
     }
-
 }
 
 

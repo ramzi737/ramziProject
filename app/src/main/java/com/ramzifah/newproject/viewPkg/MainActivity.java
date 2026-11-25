@@ -81,34 +81,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i); // بدء الانتقال
             }
         });
-        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
 
-        // عرض الصفحة الرئيسية كصفحة افتراضية عند بدء التطبيق لأول مرة
-        if (savedInstanceState == null) {
-            replaceFragment(new HomeFragment());
-        }
-
-        bottomNav.setOnItemSelectedListener(item -> { // معالج الحدث عند اختيار عنصر من عناصر الشريط السفلي
-            int itemId = item.getItemId();
-            if (itemId == R.id.nav_home) {
-                replaceFragment(new HomeFragment());
-                return true;
-            } else if (itemId == R.id.nav_dashboard) {
-                replaceFragment(new DashboardFragment());
-                return true;
-            } else if (itemId == R.id.nav_settings) {
-                replaceFragment(new SettingsFragment());
-                return true;
-            }
-            return false;
-        });
-    }
-
-    // دالة مساعدة لتبديل محتوى الـ FrameLayout
-    private void replaceFragment(Fragment fragment) {
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container, fragment)
-                .commit();
     }
 }
+
 
