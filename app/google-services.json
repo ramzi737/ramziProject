@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "674910651258",
+    "project_id": "ramziproject-f0e6f",
+    "storage_bucket": "ramziproject-f0e6f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:674910651258:android:3957ab0fede9b8e2dc0cc3",
+        "android_client_info": {
+          "package_name": "com.ramzifah.newproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtJlLkwMUDXIcpH-FafrPN_22E9CNNJPI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

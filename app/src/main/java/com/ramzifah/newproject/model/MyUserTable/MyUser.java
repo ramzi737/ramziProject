@@ -8,9 +8,9 @@ import androidx.room.PrimaryKey;
  * فئة (Entity) تُمثل جدول المستخدمين (Users Table) في قاعدة بيانات Room.
  */
 @Entity // تحديد أن هذا الكلاس يمثل جدولاً في قاعدة البيانات
-public class MyUser
-{
-    @PrimaryKey(autoGenerate = true) // تحديد هذا الحقل كمفتاح رئيسي (Primary Key) مع توليد رقمه تلقائياً
+public class MyUser {
+    @PrimaryKey(autoGenerate = true)
+    // تحديد هذا الحقل كمفتاح رئيسي (Primary Key) مع توليد رقمه تلقائياً
     public long keyid;
 
     @ColumnInfo(name = "full_Name") // تخصيص اسم لعمود الاسم الكامل في قاعدة البيانات
@@ -70,4 +70,12 @@ public class MyUser
     public void setPassw(String passw) {
         this.passw = passw;
     }
+
+    public String getPassword() {
+        return passw;
+    }
+
+    public void setFirestoreUid(String uid) {
+    }
 }
+
